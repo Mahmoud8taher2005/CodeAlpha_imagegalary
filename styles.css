@@ -1,0 +1,222 @@
+/* --- Base & Filter Styling --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f9;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.filter-menu {
+    margin-bottom: 25px;
+}
+
+.filter-btn {
+    padding: 10px 15px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.filter-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.filter-btn.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* --- Gallery Grid Layout and Hover Effects --- */
+.gallery-container {
+    display: grid;
+    /* Responsive Grid: 3 columns default, minimum size 250px */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s; /* Added opacity for filter transition */
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+}
+
+/* Style for hidden items during filtering */
+.gallery-item.hidden {
+    display: none;
+    /* Use opacity transition for a smooth disappear effect (optional, but nice) */
+    opacity: 0; 
+    transform: scale(0.8);
+}
+
+/* --- Lightbox View Styling (Same as before) --- */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1; 
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.lightbox-hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none;
+}
+
+#lightbox-image {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Close & Nav button styling... (omitted for brevity, assume the previous CSS is here) */
+.lightbox-close { /* ... */ }
+.lightbox-nav { /* ... */ }
+
+
+/* --- Responsive Design: Media Query for smaller screens --- */
+@media (max-width: 600px) {
+    .gallery-container {
+        /* On small screens, switch to 2 columns for a better view */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    }
+    
+    .gallery-item {
+        height: 150px; /* Make images smaller on mobile */
+    }
+    
+    #lightbox-image {
+        max-width: 95%; /* Give more space to the image in lightbox */
+        max-height: 70%; 
+    }
+    
+    .lightbox-nav {
+        font-size: 16px; /* Smaller navigation buttons */
+    }
+}
+/* --- Gallery Grid Layout and Hover Effects --- */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    /*
+    هنا نحدد عرض وارتفاع ثابتين لعناصر الصور المصغرة.
+    يمكنك تغيير هذه القيم حسب التصميم الذي تفضله.
+    مثلاً: لجعلها مربعة 250x250 بكسل.
+    */
+    width: 100%; /* تأكد من أن العرض يملأ الخلية في الـ grid */
+    max-width: 300px; /* يمكن تحديد أقصى عرض للتحكم أكثر */
+    height: 200px; /* هذا هو الارتفاع الذي تظهر به الصور. غيره إذا أردت */
+
+    object-fit: cover; /* سيجعل الصورة تغطي المساحة المحددة مع القص */
+    object-position: center; /* يضمن أن الصورة تُقص من المنتصف (افتراضي) */
+
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s;
+}
+
+/* --- Responsive Design (التأكد من أن التعديلات تطبق هنا أيضاً) --- */
+@media (max-width: 600px) {
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    }
+
+    .gallery-item {
+        height: 150px; /* ارتفاع أصغر للصور على شاشات الموبايل */
+        max-width: none; /* إزالة الـ max-width لضمان التعبئة */
+    }
+}
+/* --- Gallery Grid Layout and Hover Effects --- */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    /*
+    هنا نحدد عرض وارتفاع ثابتين لعناصر الصور المصغرة.
+    يمكنك تغيير هذه القيم حسب التصميم الذي تفضله.
+    مثلاً: لجعلها مربعة 250x250 بكسل.
+    */
+    width: 100%; /* تأكد من أن العرض يملأ الخلية في الـ grid */
+    max-width: 300px; /* يمكن تحديد أقصى عرض للتحكم أكثر */
+    height: 200px; /* هذا هو الارتفاع الذي تظهر به الصور. غيره إذا أردت */
+
+    object-fit: cover; /* سيجعل الصورة تغطي المساحة المحددة مع القص */
+    object-position: center; /* يضمن أن الصورة تُقص من المنتصف (افتراضي) */
+
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s;
+}
+
+/* --- Responsive Design (التأكد من أن التعديلات تطبق هنا أيضاً) --- */
+@media (max-width: 600px) {
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    }
+
+    .gallery-item {
+        height: 150px; /* ارتفاع أصغر للصور على شاشات الموبايل */
+        max-width: none; /* إزالة الـ max-width لضمان التعبئة */
+    }
+}
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 15px;
+    
+    /* الخصائص الأساسية للتوسيط */
+    max-width: 1200px; 
+    margin: 0 auto; 
+    
+    /* 💥 الحل لمشكلة الفراغ في حالة الصور القليلة */
+    /* يجعل عرض الحاوية مساوياً فقط لعرض الصور الموجودة */
+    width: fit-content; 
+    /* ثم يضمن توسيط هذه الصور المحدودة */
+    justify-content: center; 
+}
+
+/* ... باقي الـ CSS الخاص بك ... */

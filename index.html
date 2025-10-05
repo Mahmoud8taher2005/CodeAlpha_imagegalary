@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Filterable Image Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Interactive Image Gallery</h1>
+
+    <div class="filter-menu">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="nature">Nature</button>
+        <button class="filter-btn" data-filter="city">City</button>
+        <button class="filter-btn" data-filter="abstract">Abstract</button>
+    </div>
+
+    <div class="gallery-container">
+        <img src="images (3).jpeg" data-full="img/image1_full.jpg" data-index="0" data-category="nature" alt="Green Landscape" class="gallery-item">
+        <img src="images (2).jpeg" data-full="img/image2_full.jpg" data-index="1" data-category="city" alt="Night Cityscape" class="gallery-item">
+        <img src="images (1).jpeg" data-full="img/image3_full.jpg" data-index="2" data-category="nature" alt="Mountain View" class="gallery-item">
+        <img src="images.jpeg" data-full="img/image4_full.jpg" data-index="3" data-category="abstract" alt="Colorful Art" class="gallery-item">
+        </div>
+
+    <div id="lightbox" class="lightbox-hidden">
+        <span class="lightbox-close">&times;</span>
+        <a class="lightbox-nav lightbox-prev">&#10094;</a>
+        <img id="lightbox-image" src="" alt="Full-size image">
+        <a class="lightbox-nav lightbox-next">&#10095;</a>
+        <div id="lightbox-caption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
